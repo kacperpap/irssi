@@ -3,7 +3,7 @@ name: Build irssi
 on:
   push:
     branches:
-     - master
+      - master
   pull_request:
 
 env:
@@ -40,11 +40,12 @@ jobs:
           sudo apt update && sudo apt install -y $apt_build_deps
           eval "$get_pip_build_deps_meson"
 
+      - name: List directory contents
+        run: ls -la
+
       - name: Build and install with meson
         run: |
           cd irssi-*/
           meson Build $build_options_meson --prefix=${prefix}
           ninja -C Build
           ninja -C Build install
-
-  
