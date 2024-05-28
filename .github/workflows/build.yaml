@@ -41,11 +41,13 @@ jobs:
           eval "$get_pip_build_deps_meson"
 
       - name: List directory contents
-        run: ls -la
+        run: |
+          ls -la
 
       - name: Build and install with meson
         run: |
-          cd irssi-*/
           meson Build $build_options_meson --prefix=${prefix}
           ninja -C Build
           ninja -C Build install
+        working-directory: .
+
