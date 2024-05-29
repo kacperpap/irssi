@@ -8,6 +8,12 @@ on:
     branches:
       - ino_dev
   workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Dispatecher'
+  
+
+
     
 
 env:
