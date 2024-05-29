@@ -1,4 +1,4 @@
-name: Build irssi
+name: Build irssi on ino_dev
 
 on:
   push:
