@@ -5,6 +5,10 @@ on:
     branches:
       - master
   pull_request:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Dispatecher'
 
 env:
   apt_build_deps: libutf8proc-dev libperl-dev libotr5-dev ninja-build
@@ -39,10 +43,6 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y $apt_build_deps
           eval "$get_pip_build_deps_meson"
-
-      - name: List directory contents
-        run: |
-          ls -la
 
       - name: Build and install with meson
         run: |
